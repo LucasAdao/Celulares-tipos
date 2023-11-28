@@ -1,0 +1,14 @@
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\bin\Debug\net8.0\Celulares tipos.exe
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\bin\Debug\net8.0\Celulares tipos.deps.json
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\bin\Debug\net8.0\Celulares tipos.runtimeconfig.json
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\bin\Debug\net8.0\Celulares tipos.dll
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\bin\Debug\net8.0\Celulares tipos.pdb
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.AssemblyInfoInputs.cache
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.AssemblyInfo.cs
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.csproj.CoreCompileInputs.cache
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.dll
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\refint\Celulares tipos.dll
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.pdb
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.genruntimeconfig.cache
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\ref\Celulares tipos.dll
