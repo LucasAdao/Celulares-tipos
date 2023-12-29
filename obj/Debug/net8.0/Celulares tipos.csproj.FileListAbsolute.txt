@@ -12,3 +12,4 @@ C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net
 C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.pdb
 C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.genruntimeconfig.cache
 C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\ref\Celulares tipos.dll
+C:\Users\Ladao\OneDrive\Área de Trabalho\Projetos\Celulares tipos\obj\Debug\net8.0\Celulares tipos.sourcelink.json

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Celulares_tipos.models
+namespace Celulares_tipos.models.sistemaOperacional
 {
     // TODO: Herdar da classe "Smartphone"
+    /// <summary>
+    /// Classe que representa o aparelho da microsoft/nokia e suas funcionalidades
+    /// </summary>
     public class Nokia : Smartphone
     {
         public Nokia(string numero, string modelo, string imei, int memoria) : base(numero, modelo, imei, memoria)
@@ -15,6 +18,11 @@ namespace Celulares_tipos.models
        
 
         // TODO: Sobrescrever o método "InstalarAplicativo"
+        /// <summary>
+        /// Metodo que faz a instalação de aplicativos no aparelho com base no nome e na memória.
+        /// </summary>
+        /// <param name="nomeApp">serve para dizer o nome que o aparelho vai buscar na loja</param>
+        /// <param name="espacoApp">serve para medir a capacidade do aparelho em relação a quantidade de memória do aplicativo</param>
         public override void InstalarAplicativo(string nomeApp,int espacoApp)
         {
            Console.WriteLine("Entra na Play Store");
