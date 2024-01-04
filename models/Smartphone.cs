@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Celulares_tipos.models.util;
+using Celulares_tipos.util;
 
 namespace Celulares_tipos.models
 {
@@ -16,9 +16,9 @@ namespace Celulares_tipos.models
         public int Memoria { get; set; }
         public int Bateria = 100;
         public bool Ligado { get; set; }
-        public List<Musicas> Musicas;
-        public List<Contatos> Contatos;
-        public List<Aplicacao> Aplicacao;
+        public List<Musicas> ListaDeMusicas;
+        public List<Contatos> ListaDeContatos;
+        public List<Aplicacao> ListaDeAplicacoes;
 
         public Smartphone(string numero, string imei, string modelo, int memoria) 
         {
@@ -26,9 +26,9 @@ namespace Celulares_tipos.models
             Imei = imei;
             Modelo = modelo;
             Memoria = memoria;
-            Musicas = new List<Musicas>();
-            Contatos = new List<Contatos>();
-            Aplicacao = new List<Aplicacao>();
+            ListaDeMusicas = new List<Musicas>();
+            ListaDeContatos = new List<Contatos>();
+            ListaDeAplicacoes = new List<Aplicacao>();
         }
 
 

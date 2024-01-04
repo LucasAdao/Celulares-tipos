@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Celulares_tipos.util;
 
 namespace Celulares_tipos.models
 {
@@ -18,9 +19,47 @@ namespace Celulares_tipos.models
 
         public override void AplicativoDeMusicas()
         {
-            throw new NotImplementedException();
+            
+            Bateria = Bateria - 1;
+            bool musicPlayer = true;
+            while (musicPlayer == true) 
+            {
+                Console.WriteLine("MusicPlayer: \n 1-Adicionar Música \n 2-Remover Música \n 3-Listar Músicas \n 4-Sair");
+                int opcaoAplicativoDeMusica = Convert.ToInt32(Console.ReadLine());
+                switch (opcaoAplicativoDeMusica) 
+                { 
+                    case 1:
+                        Console.WriteLine("Digite o nome da música que você deseja adicionar:");
+                        string nomeDaMusica = Console.ReadLine();
+                        Console.WriteLine("Agora digite o nome do autor da música:");
+                        string autor = Console.ReadLine();
+                        Musicas music = new Musicas(nomeDaMusica, autor);
+                        ListaDeMusicas.Add(music);
+                        
+                        break;
+                    case 2:
+                        Console.WriteLine("Digite o nome da música que você deseja remover:");
+                        string nomeDaMusicaParaRemover = Console.ReadLine();
+                        Console.WriteLine("Agora digite o nome do autor da música que vai ser removida:");
+                        string autorParaRemover = Console.ReadLine();
+                        Musicas musicQueSeraRemovida = new Musicas(nomeDaMusicaParaRemover, autorParaRemover);
+                        ListaDeMusicas.Remove(musicQueSeraRemovida);
+                        break;
+                    case 3:
+                        
+
+                        break;
+                        
+
+                    default:
+                        Console.WriteLine("Digite uma opção válida.");
+                        break;
+                }
+
+            }
         }
 
+        
         public override void FazerLigacao()
         {
             //TO DO: implementar contato que vc quer ligar
@@ -53,5 +92,7 @@ namespace Celulares_tipos.models
         {
             
         }
+
+        
     }
 }
