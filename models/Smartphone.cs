@@ -16,9 +16,9 @@ namespace Celulares_tipos.models
         public int Memoria { get; set; }
         public int Bateria = 100;
         public bool Ligado { get; set; }
-        public List<Musicas> ListaDeMusicas;
-        public List<Contatos> ListaDeContatos;
-        public List<Aplicacao> ListaDeAplicacoes;
+        public List<Musica> Musicas;
+        public List<Contato> Contatos;
+        public List<Aplicacao> Aplicacoes;
 
         public Smartphone(string numero, string imei, string modelo, int memoria) 
         {
@@ -26,9 +26,9 @@ namespace Celulares_tipos.models
             Imei = imei;
             Modelo = modelo;
             Memoria = memoria;
-            ListaDeMusicas = new List<Musicas>();
-            ListaDeContatos = new List<Contatos>();
-            ListaDeAplicacoes = new List<Aplicacao>();
+            Musicas = new List<Musica>();
+            Contatos = new List<Contato>();
+            Aplicacoes = new List<Aplicacao>();
         }
 
 

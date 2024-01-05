@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Celulares_tipos.util
 {
-    public class Musicas
+    public class Musica
     {
         public string NomeDaMusica { get; set; }
         public string Autor { get; set; }
 
-        public Musicas(string nomeDaMusica, string autor) {
+        public Musica(string nomeDaMusica, string autor) {
             NomeDaMusica = nomeDaMusica;
             Autor = autor;
         }

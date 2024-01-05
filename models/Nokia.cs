@@ -34,8 +34,8 @@ namespace Celulares_tipos.models
                         string nomeDaMusica = Console.ReadLine();
                         Console.WriteLine("Agora digite o nome do autor da música:");
                         string autor = Console.ReadLine();
-                        Musicas music = new Musicas(nomeDaMusica, autor);
-                        ListaDeMusicas.Add(music);
+                        Musica music = new Musica(nomeDaMusica, autor);
+                        Musicas.Add(music);
                         Console.WriteLine("           ");
                         Thread.Sleep(1000);
                         break;
@@ -44,13 +44,13 @@ namespace Celulares_tipos.models
                         string nomeDaMusicaParaRemover = Console.ReadLine();
                         Console.WriteLine("Agora digite o nome do autor da música que vai ser removida:");
                         string autorParaRemover = Console.ReadLine();
-                        Musicas musicQueSeraRemovida = new Musicas(nomeDaMusicaParaRemover, autorParaRemover);
-                        ListaDeMusicas.Remove(musicQueSeraRemovida);
+                        Musica musicQueSeraRemovida = new Musica(nomeDaMusicaParaRemover, autorParaRemover);
+                        Musicas.Remove(musicQueSeraRemovida);
                         Console.WriteLine("           ");
                         Thread.Sleep(1000);
                         break;
                     case 3:
-                        foreach (Musicas musica in ListaDeMusicas)
+                        foreach (Musica musica in Musicas)
                         {
                             Console.WriteLine(musica.NomeDaMusica + " - " + musica.Autor);
                             Thread.Sleep(1000);
@@ -116,7 +116,15 @@ namespace Celulares_tipos.models
 
         public override void InstalarAplicativo()
         {
+            Console.WriteLine("Acessando a Play store...");
+            Thread.Sleep(2000);
+            Console.WriteLine("...");
+            Thread.Sleep(1000);
             
+
+            Console.WriteLine("Digite o nome do aplicativo que você quer instalar:");
+            Console.ReadLine();
+
         }
 
         

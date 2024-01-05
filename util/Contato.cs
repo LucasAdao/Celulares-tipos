@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Celulares_tipos.util
 {
-    public class Contatos
+    public class Contato
     {
         public string Nome { get; set; }
         public string Numero { get; set; }
 
-        public Contatos(string nome, string numero){
+        public Contato(string nome, string numero){
             Nome = nome;
             Numero = numero;
         }
