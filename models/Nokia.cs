@@ -121,9 +121,25 @@ namespace Celulares_tipos.models
             Console.WriteLine("...");
             Thread.Sleep(1000);
             
-
+            Aplicacao aplicacao = new Aplicacao();
             Console.WriteLine("Digite o nome do aplicativo que você quer instalar:");
-            Console.ReadLine();
+            string aplicativoNome = Console.ReadLine();
+            aplicacao.Nome = aplicativoNome;
+            Random random = new Random();
+            aplicacao.Tamanho = random.Next(1, 13);
+            int espacoCelular = Memoria - aplicacao.Tamanho;
+            if (Memoria < aplicacao.Tamanho)
+            {
+                Thread.Sleep(15000);
+                Console.WriteLine("Libere mais memória, o aplicativo excede a memória do dispositivo.");
+                Thread.Sleep(1000);
+                Console.WriteLine("Sua memória atual é : " + Memoria + "Gb. e o aplicativo atual tem " + aplicacao.Tamanho + "Gb");
+            }
+            else
+            {
+                Aplicacoes.Add(aplicacao);
+                Console.WriteLine("Aplicativo instalado com sucesso!");
+            }
 
         }
 
