@@ -20,6 +20,7 @@ namespace Celulares_tipos.models
         public List<Contato> Contatos;
         public List<Aplicacao> Aplicacoes;
 
+        public Smartphone() { }
         public Smartphone(string numero, string imei, string modelo, int memoria) 
         {
             Numero = numero;
@@ -31,11 +32,6 @@ namespace Celulares_tipos.models
             Aplicacoes = new List<Aplicacao>();
         }
 
-
-        public void Ligar() 
-        {
-            Ligado = true;
-        }
         public void Desligar()
         {
             Ligado = false;
@@ -68,7 +64,7 @@ namespace Celulares_tipos.models
             }
         }
 
-
+        public abstract void Ligar();
         public abstract void AplicativoDeMusicas();
 
         public abstract void AplicativoDeContatos();

@@ -9,13 +9,89 @@ namespace Celulares_tipos.models
 {
     public class Nokia : Smartphone
     {
+
+        public Nokia() { }
         public Nokia(string numero, string imei, string modelo, int memoria) : base(numero, imei, modelo, memoria)
         {
         }
 
+        public override void Ligar()
+        {
+            Ligado = true;
+
+            Console.WriteLine("Iniciando...");
+            Thread.Sleep(2000);
+            Console.WriteLine(@"
+            ⠀⠀⠀⣤⣴⣾⣿⣿⣿⣿⣿⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡄
+            ⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⢰⣦⣄⣀⣀⣠⣴⣾⣿⠃
+            ⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⠀
+            ⠀⠀⣼⣿⡿⠿⠛⠻⠿⣿⣿⡇⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀
+            ⠀⠀⠉⠀⠀⠀⢀⠀⠀⠀⠈⠁⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀
+            ⠀⠀⣠⣴⣶⣿⣿⣿⣷⣶⣤⠀⠀⠀⠈⠉⠛⠛⠛⠉⠉⠀⠀⠀
+            ⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⣶⣦⣄⣀⣀⣀⣤⣤⣶⠀⠀
+            ⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀
+            ⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀
+            ⢠⣿⡿⠿⠛⠉⠉⠉⠛⠿⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀
+            ⠘⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⢿⣿⣿⣿⣿⣿⠿⠛⠀⠀⠀
+                                         
+                                         ");
+            Thread.Sleep(2000);
+           
+        }
+
         public override void AplicativoDeContatos()
         {
-            throw new NotImplementedException();
+            bool acessarContatos = true;
+            while (acessarContatos == true)
+            {
+                Thread.Sleep(2000);
+                Console.WriteLine("Lista Telefonica: \n 1-Ver Contatos \n 2-Adicionar Contatos \n 3-Remover Contatos \n 4-Menu Principal");
+                int opcaoListaDeContatos = Convert.ToInt32(Console.ReadLine());
+                switch (opcaoListaDeContatos) 
+                {
+                    case 1:
+                    
+                        foreach (Contato contatoDeLista in Contatos)
+                        {
+                            Console.WriteLine($" Nome: {contatoDeLista.Nome} \n Número: {contatoDeLista.Numero}");
+                            Thread.Sleep(1500);
+                        }
+                        Console.WriteLine("       ");
+                        break;
+                    case 2:
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Digite o nome do contato:");
+                        string nomeDoContato = Console.ReadLine();
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Insira o número de telefone do contato:");
+                        string numeroDoContato = Console.ReadLine();
+                        Contato contato = new Contato(nomeDoContato, numeroDoContato);
+                        Contatos.Add(contato);
+                        Console.WriteLine("       ");
+                        Memoria--;
+                        break;
+                    case 3:
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Digite o Nome do Contato que você quer remover:");
+                        string nomeDoContatoParaRemover = Console.ReadLine();
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Digite o Número do Contato que você quer remover:");
+                        string numeroDoContatoParaRemover = Console.ReadLine();
+                        Contato contatoParaRemover = new Contato(nomeDoContatoParaRemover, numeroDoContatoParaRemover);
+                        Contatos.Remove(contatoParaRemover);
+                        Memoria++;
+                        break;
+                    case 4:
+                        acessarContatos = false;
+                        Console.WriteLine("       ");
+                        break;
+                    default:
+                        Console.WriteLine("Insira um valor válido!");
+                        Console.WriteLine("       ");
+                        Thread.Sleep(1000);
+                        break;
+                }
+            }
         }
 
         public override void AplicativoDeMusicas()
@@ -25,35 +101,41 @@ namespace Celulares_tipos.models
             bool musicPlayer = true;
             while (musicPlayer == true) 
             {
-                Console.WriteLine("MusicPlayer: \n 1-Adicionar Música \n 2-Remover Música \n 3-Listar Músicas \n 4-Sair");
+                Console.WriteLine("MusicPlayer: \n 1-Adicionar Música \n 2-Remover Música \n 3-Listar Músicas \n 4-Menu Principal");
                 int opcaoAplicativoDeMusica = Convert.ToInt32(Console.ReadLine());
                 switch (opcaoAplicativoDeMusica) 
                 { 
                     case 1:
+                        Thread.Sleep(2000);
                         Console.WriteLine("Digite o nome da música que você deseja adicionar:");
                         string nomeDaMusica = Console.ReadLine();
+                        Thread.Sleep(2000);
                         Console.WriteLine("Agora digite o nome do autor da música:");
                         string autor = Console.ReadLine();
                         Musica music = new Musica(nomeDaMusica, autor);
                         Musicas.Add(music);
                         Console.WriteLine("           ");
                         Thread.Sleep(1000);
+                        Memoria--;
                         break;
                     case 2:
+                        Thread.Sleep(2000);
                         Console.WriteLine("Digite o nome da música que você deseja remover:");
                         string nomeDaMusicaParaRemover = Console.ReadLine();
+                        Thread.Sleep(2000);
                         Console.WriteLine("Agora digite o nome do autor da música que vai ser removida:");
                         string autorParaRemover = Console.ReadLine();
                         Musica musicQueSeraRemovida = new Musica(nomeDaMusicaParaRemover, autorParaRemover);
                         Musicas.Remove(musicQueSeraRemovida);
                         Console.WriteLine("           ");
                         Thread.Sleep(1000);
+                        Memoria++;
                         break;
                     case 3:
                         foreach (Musica musica in Musicas)
                         {
                             Console.WriteLine(musica.NomeDaMusica + " - " + musica.Autor);
-                            Thread.Sleep(1000);
+                            Thread.Sleep(1500);
                         }
                         Console.WriteLine("           ");
                         break;
@@ -63,6 +145,8 @@ namespace Celulares_tipos.models
                         
                     default:
                         Console.WriteLine("Digite uma opção válida.");
+                        Console.WriteLine("       ");
+                        Thread.Sleep(1000);
                         break;
                 }
 
@@ -73,7 +157,7 @@ namespace Celulares_tipos.models
         public override void FazerLigacao()
         {
             Stopwatch stopwatch = new Stopwatch();
-
+            Thread.Sleep(2000);
             Console.WriteLine("Digite o número que você deseja fazer a ligação:");
             string numeroLigacao = Console.ReadLine();
             Random random = new Random();
@@ -92,15 +176,19 @@ namespace Celulares_tipos.models
                 Console.ReadKey();
                 stopwatch.Stop();
                 TimeSpan tempoDecorrido = stopwatch.Elapsed;
-                string tempoMinutos = tempoDecorrido.TotalMinutes.ToString("F2");
-                string tempoSegundos = tempoDecorrido.TotalSeconds.ToString("F2");
+                string tempoMinutos = tempoDecorrido.TotalMinutes.ToString("F0");
+                string tempoSegundos = tempoDecorrido.TotalSeconds.ToString("F0");
                 if (tempoDecorrido.TotalMinutes < 1)
                 {
-                    Console.WriteLine($"Chamada encerrada! você ficou na chamada {tempoSegundos} ");
+                    Thread.Sleep(1000);
+                    Console.WriteLine($"Chamada encerrada! você ficou na chamada {tempoSegundos} segundos ");
+                    Console.WriteLine("       ");
                 }
                 else 
                 {
-                    Console.WriteLine($"Chamada encerrada! você ficou na chamada {tempoMinutos}");
+                    Thread.Sleep(1000);
+                    Console.WriteLine($"Chamada encerrada! você ficou na chamada {tempoMinutos} minutos");
+                    Console.WriteLine("       ");
                 }
             }
             else
@@ -110,6 +198,7 @@ namespace Celulares_tipos.models
                 Console.WriteLine("Chamando...");
                 Thread.Sleep(2000);
                 Console.WriteLine("O número: " + numeroLigacao + " está fora de área ou desligado!");
+                Console.WriteLine("       ");
             }
 
         }
@@ -119,7 +208,7 @@ namespace Celulares_tipos.models
             Console.WriteLine("Acessando a Play store...");
             Thread.Sleep(2000);
             Console.WriteLine("...");
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             
             Aplicacao aplicacao = new Aplicacao();
             Console.WriteLine("Digite o nome do aplicativo que você quer instalar:");
@@ -127,21 +216,26 @@ namespace Celulares_tipos.models
             aplicacao.Nome = aplicativoNome;
             Random random = new Random();
             aplicacao.Tamanho = random.Next(1, 13);
-            int espacoCelular = Memoria - aplicacao.Tamanho;
             if (Memoria < aplicacao.Tamanho)
             {
                 Thread.Sleep(15000);
                 Console.WriteLine("Libere mais memória, o aplicativo excede a memória do dispositivo.");
                 Thread.Sleep(1000);
                 Console.WriteLine("Sua memória atual é : " + Memoria + "Gb. e o aplicativo atual tem " + aplicacao.Tamanho + "Gb");
+                Thread.Sleep(1000);
+                Console.WriteLine("       ");
             }
             else
             {
                 Aplicacoes.Add(aplicacao);
+                Thread.Sleep(1500);
                 Console.WriteLine("Aplicativo instalado com sucesso!");
+                Memoria = Memoria - aplicacao.Tamanho;
+                Console.WriteLine("       ");
             }
 
         }
+
 
         
     }

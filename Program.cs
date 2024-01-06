@@ -10,7 +10,10 @@ namespace Celulares_tipos
     {
         static void Main() 
         {
-            
+            Console.WriteLine("Vamos simular um modelo de celular!");
+            Thread.Sleep(1000);
+            Console.WriteLine("Digite: \n 1-Para Iphone \n 2-Para Nokia");
+
         }
     }
 }
