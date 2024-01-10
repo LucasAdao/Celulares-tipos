@@ -64,6 +64,11 @@ namespace Celulares_tipos.models
             }
         }
 
+        public void Descricao() 
+        {
+            
+        }
+
         public abstract void Ligar();
         public abstract void AplicativoDeMusicas();
 
@@ -73,7 +78,7 @@ namespace Celulares_tipos.models
 
         public abstract void InstalarAplicativo();
 
-
+        
 
         
     }
