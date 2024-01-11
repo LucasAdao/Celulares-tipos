@@ -34,17 +34,17 @@ namespace Celulares_tipos.models
             ⢠⣿⡿⠿⠛⠉⠉⠉⠛⠿⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀
             ⠘⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⢿⣿⣿⣿⣿⣿⠿⠛⠀⠀⠀
                                          
-             ------ Be What's Next -------");
+        ------ Be What's Next -------");
             Thread.Sleep(2000);
            
         }
 
         public override void AplicativoDeContatos()
         {
-            bool acessarContatos = true;
+            bool acessarContatos =   true;
             while (acessarContatos == true)
             {
-                Thread.Sleep(2000);
+                Console.Clear();
                 Console.WriteLine("Lista Telefonica: \n 1-Ver Contatos \n 2-Adicionar Contatos \n 3-Remover Contatos \n 4-Menu Principal");
                 int opcaoListaDeContatos = Convert.ToInt32(Console.ReadLine());
                 switch (opcaoListaDeContatos) 
@@ -53,10 +53,11 @@ namespace Celulares_tipos.models
                     
                         foreach (Contato contatoDeLista in Contatos)
                         {
-                            Console.WriteLine($" Nome: {contatoDeLista.Nome} \n Número: {contatoDeLista.Numero}");
-                            Thread.Sleep(1500);
+                            Console.WriteLine($"---------------------------\n Nome: {contatoDeLista.Nome} \n Número: {contatoDeLista.Numero}");
+                            Thread.Sleep(500);
                         }
-                        Console.WriteLine("       ");
+                        Console.WriteLine("Digite uma tecla para continuar");
+                        Console.ReadKey();
                         break;
                     case 2:
                         Thread.Sleep(2000);
@@ -67,18 +68,12 @@ namespace Celulares_tipos.models
                         string numeroDoContato = Console.ReadLine();
                         Contato contato = new Contato(nomeDoContato, numeroDoContato);
                         Contatos.Add(contato);
-                        Console.WriteLine("       ");
+                        Console.WriteLine("Digite uma tecla para continuar");
+                        Console.ReadKey();
                         Memoria--;
                         break;
                     case 3:
-                        Thread.Sleep(2000);
-                        Console.WriteLine("Digite o Nome do Contato que você quer remover:");
-                        string nomeDoContatoParaRemover = Console.ReadLine();
-                        Thread.Sleep(2000);
-                        Console.WriteLine("Digite o Número do Contato que você quer remover:");
-                        string numeroDoContatoParaRemover = Console.ReadLine();
-                        Contato contatoParaRemover = new Contato(nomeDoContatoParaRemover, numeroDoContatoParaRemover);
-                        Contatos.Remove(contatoParaRemover);
+                        RemoverContato();
                         Memoria++;
                         break;
                     case 4:
@@ -87,8 +82,8 @@ namespace Celulares_tipos.models
                         break;
                     default:
                         Console.WriteLine("Insira um valor válido!");
-                        Console.WriteLine("       ");
-                        Thread.Sleep(1000);
+                        Console.WriteLine("Digite uma tecla para continuar");
+                        Console.ReadKey();
                         break;
                 }
             }
@@ -150,9 +145,10 @@ namespace Celulares_tipos.models
                         Console.ReadKey();
                         break;
                     case 3:
+                        int i = 1;
                         foreach (Musica musica in Musicas)
                         {
-                            int i = 1;
+                            
                             Console.WriteLine(i + "." + musica.NomeDaMusica + " - " + musica.Autor);
                             Thread.Sleep(500);
                             i++;
@@ -204,13 +200,15 @@ namespace Celulares_tipos.models
                 {
                     Thread.Sleep(1000);
                     Console.WriteLine($"Chamada encerrada! você ficou na chamada {tempoSegundos} segundos ");
-                    Console.WriteLine("       ");
+                     Console.WriteLine("Digite uma tecla para continuar");
+                    Console.ReadKey();
                 }
                 else 
                 {
                     Thread.Sleep(1000);
                     Console.WriteLine($"Chamada encerrada! você ficou na chamada {tempoMinutos} minutos");
-                    Console.WriteLine("       ");
+                    Console.WriteLine("Digite uma tecla para continuar");
+                    Console.ReadKey();
                 }
             }
             else
@@ -220,7 +218,8 @@ namespace Celulares_tipos.models
                 Console.WriteLine("Chamando...");
                 Thread.Sleep(2000);
                 Console.WriteLine("O número: " + numeroLigacao + " está fora de área ou desligado!");
-                Console.WriteLine("       ");
+                Console.WriteLine("Digite uma tecla para continuar");
+                Console.ReadKey();
             }
 
         }
@@ -243,13 +242,15 @@ namespace Celulares_tipos.models
                 Console.WriteLine("Libere mais memória, o aplicativo excede a memória do dispositivo.");
                 Thread.Sleep(1000);
                 Console.WriteLine("Sua memória atual é : " + Memoria + "Gb. e o aplicativo atual tem " + aplicacao.Tamanho + "Gb");
-                Thread.Sleep(1000);
-                Console.WriteLine("       ");
+                Console.WriteLine("Digite uma tecla para continuar");
+                Console.ReadKey();
+                
             }
             else if(aplicacao.Nome == null || aplicacao.Nome.Length < 3)
             {
                 Console.WriteLine("A aplicação é inexistente, tente inserir o nome real dela!");
-                Console.WriteLine("                  ");
+                Console.WriteLine("Digite uma tecla para continuar");
+                Console.ReadKey();
             }
             else
             {
@@ -257,7 +258,9 @@ namespace Celulares_tipos.models
                 Thread.Sleep(1500);
                 Console.WriteLine("Aplicativo instalado com sucesso!");
                 Memoria = Memoria - aplicacao.Tamanho;
-                Console.WriteLine("       ");
+                Console.WriteLine("Digite uma tecla para continuar");
+                Console.ReadKey();
+                
             }
 
         }

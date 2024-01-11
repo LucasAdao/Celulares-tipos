@@ -69,6 +69,42 @@ namespace Celulares_tipos.models
             Console.WriteLine($"Modelo: {Modelo} \nMemoria: {Memoria}Gb");
         }
 
+        protected void RemoverMusica()
+        {
+        Console.WriteLine("Digite o nome da música que você quer remover:");
+        string nomeDaMusica = Console.ReadLine();
+        
+        Musica musicaParaRemover = Musicas.Find(m => m.NomeDaMusica == nomeDaMusica);
+
+        if (musicaParaRemover != null)
+        {
+            Musicas.Remove(musicaParaRemover);
+            Console.WriteLine($"Música '{nomeDaMusica}' removida com sucesso!");
+        }
+        else
+        {
+            Console.WriteLine($"Música '{nomeDaMusica}' não encontrada no celular.");
+        }
+        }
+
+        protected void RemoverContato()
+        {
+        Console.WriteLine("Digite o nome do contato que você quer remover:");
+        string nomeDoContato = Console.ReadLine();
+        
+        Contato contatoParaRemover = Contatos.Find(m => m.Nome == nomeDoContato);
+
+        if (contatoParaRemover != null)
+        {
+            Contatos.Remove(contatoParaRemover);
+            Console.WriteLine($"Música '{nomeDoContato}' removida com sucesso!");
+        }
+        else
+        {
+            Console.WriteLine($"Música '{nomeDoContato}' não encontrada no celular.");
+        }
+        }
+
         public abstract void Ligar();
         public abstract void AplicativoDeMusicas();
 
