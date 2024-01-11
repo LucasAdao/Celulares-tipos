@@ -66,7 +66,7 @@ namespace Celulares_tipos.models
 
         public void Descricao() 
         {
-            
+            Console.WriteLine($"Modelo: {Modelo} \nMemoria: {Memoria}Gb");
         }
 
         public abstract void Ligar();
