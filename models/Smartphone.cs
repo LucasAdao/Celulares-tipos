@@ -15,12 +15,19 @@ namespace Celulares_tipos.models
         public string Modelo { get; set;}
         public int Memoria { get; set; }
         public int Bateria = 100;
+
+        public double MemoriaUsavel { get; set; }
         public bool Ligado { get; set; }
         public List<Musica> Musicas;
         public List<Contato> Contatos;
         public List<Aplicacao> Aplicacoes;
 
-        public Smartphone() { }
+        public Smartphone()
+        {
+            Contatos = new List<Contato>();
+            Aplicacoes = new List<Aplicacao>();
+            Musicas = new List<Musica>();
+        }
         public Smartphone(string numero, string imei, string modelo, int memoria) 
         {
             Numero = numero;
@@ -30,6 +37,7 @@ namespace Celulares_tipos.models
             Musicas = new List<Musica>();
             Contatos = new List<Contato>();
             Aplicacoes = new List<Aplicacao>();
+            MemoriaUsavel = Memoria;
         }
 
         public void Desligar()
@@ -97,11 +105,28 @@ namespace Celulares_tipos.models
         if (contatoParaRemover != null)
         {
             Contatos.Remove(contatoParaRemover);
-            Console.WriteLine($"Música '{nomeDoContato}' removida com sucesso!");
+            Console.WriteLine($"Contato:{nomeDoContato} removida com sucesso!");
         }
         else
         {
-            Console.WriteLine($"Música '{nomeDoContato}' não encontrada no celular.");
+            Console.WriteLine($"Contato:{nomeDoContato} não encontrada no celular.");
+        }
+        }
+        protected void RemoverAplicativo()
+        {
+        Console.WriteLine("Digite o nome do Aplicativo que você quer remover:");
+        string nomeDoAplicativo = Console.ReadLine();
+        
+        Aplicacao aplicativoParaRemover = Aplicacoes.Find(m => m.Nome == nomeDoAplicativo);
+
+        if (aplicativoParaRemover != null)
+        {
+            Aplicacoes.Remove(aplicativoParaRemover);
+            Console.WriteLine($"O {nomeDoAplicativo} foi removido com sucesso!");
+        }
+        else
+        {
+            Console.WriteLine($"{nomeDoAplicativo} não encontrado no seu celular.");
         }
         }
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Celulares tipos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b80f4d168d9c8cce977f1bb57317ba6de4ac86e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4d3ec805209307cd91f85b98e23ccdfa2722a3f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Celulares tipos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Celulares tipos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

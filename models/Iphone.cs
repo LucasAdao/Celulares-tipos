@@ -52,12 +52,18 @@ namespace Celulares_tipos.models
                 switch (opcaoListaDeContatos) 
                 {
                     case 1:
-                    
-                        foreach (Contato contatoDeLista in Contatos)
+                        if (Contatos.Count == 0)
                         {
-                            Console.WriteLine($"---------------------------\n Nome: {contatoDeLista.Nome} \n Número: {contatoDeLista.Numero}");
-                            
-                            Thread.Sleep(500);
+                            Console.WriteLine("Você não possui contatos. Insira mais contatos na opção inserir contatos.");
+                        }
+                        else
+                        {
+                            foreach (Contato contatoDeLista in Contatos)
+                            {
+                                Console.WriteLine($"---------------------------\n Nome: {contatoDeLista.Nome} \n Número: {contatoDeLista.Numero}");
+
+                                Thread.Sleep(500);
+                            }
                         }
                         Console.WriteLine("Digite uma tecla para continuar");
                         Console.ReadKey();
@@ -71,7 +77,7 @@ namespace Celulares_tipos.models
                         string numeroDoContato = Console.ReadLine();
                         Contato contato = new Contato(nomeDoContato, numeroDoContato);
                         Contatos.Add(contato);
-                        Console.WriteLine("Digite uma tecla para continuar");
+                        Console.WriteLine("Contato adicionado com sucesso, digite uma tecla para continuar!");
                         Console.ReadKey();
                         Memoria--;
                         break;
@@ -134,11 +140,18 @@ namespace Celulares_tipos.models
                         break;
                     case 3:
                         int i = 1;
-                        foreach (Musica musica in Musicas)
+                        if (Musicas.Count == 0)
                         {
-                            Console.WriteLine(i + "." + musica.NomeDaMusica + " - " + musica.Autor);
-                            Thread.Sleep(500);
-                            i++;
+                            Console.WriteLine("Você não adicionou Músicas, use a opção adicionar músicas para adicionar mais músicas!");
+                        }
+                        else 
+                        { 
+                            foreach (Musica musica in Musicas)
+                            {
+                                Console.WriteLine(i + "." + musica.NomeDaMusica + " - " + musica.Autor);
+                                Thread.Sleep(500);
+                                i++;
+                            }
                         }
                         Console.WriteLine("Digite uma tecla para continuar");
                         Console.ReadKey();
@@ -168,8 +181,8 @@ namespace Celulares_tipos.models
             Console.WriteLine("Digite o número que você deseja fazer a ligação:");
             string numeroLigacao = Console.ReadLine();
             Random random = new Random();
-            int procedimentosDeLigacao = random.Next(1, 3);
-            if (procedimentosDeLigacao == 1)
+            int procedimentosDeLigacao = random.Next(1, 4);
+            if (procedimentosDeLigacao == 1 || procedimentosDeLigacao == 2)
             {
                 Console.WriteLine("Chamando...");
                 Thread.Sleep(1000);

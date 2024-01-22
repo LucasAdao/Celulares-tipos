@@ -11,8 +11,13 @@ namespace Celulares_tipos
     {
         static void Main() 
         {
+            //feedbacks          - Okay!
+            //fazer a função desinstalar app     - Okay!
+            //manter o usuário preso na operação  - Okay!
+            //memoria usavel -- usar????
+            //Diagrama UML  -- em produção
             //fazer a calculadora
-            //fazer a função desinstalar app
+            //testar a calculadora
             Console.WriteLine("Vamos simular um modelo de celular!");
             Thread.Sleep(1000);
             Console.WriteLine("Digite: \n 1-Para Iphone \n 2-Para Nokia");
@@ -21,21 +26,83 @@ namespace Celulares_tipos
             switch (opcaoInicial) 
             { 
             case 1:
+                bool passa = false;
+
                 Console.WriteLine("Certo, agora me passe as informações do seu Iphone!");
+                Iphone iphone = new Iphone();
+
                 Thread.Sleep(1500);
-                Console.WriteLine("Modelo:(Ex: Iphone 15 pro max)");
-                string modelo = Console.ReadLine();
+                while (passa == false) 
+                {
+                    Console.WriteLine("Modelo:(Ex: Iphone 15 pro max)");
+                    string modelo = Console.ReadLine();
+                        if (modelo.Length > 3) {
+                            iphone.Modelo = modelo;
+                            passa = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Modelo invalido, tente inserir um nome válido!");
+                            Thread.Sleep(3000);
+                            Console.Clear();
+                        }
+                }
+                passa = false;
                 Thread.Sleep(500);
-                Console.WriteLine("Número:(Ex: 81-997505987)");
-                string numero = Console.ReadLine();
+                while (passa == false) 
+                {
+                    Console.WriteLine("Número:(Ex: 81-997505987)");
+                    string numero = Console.ReadLine();
+                        if (numero.Length > 3) 
+                        {
+                            iphone.Numero = numero;
+                            passa = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Número invalido, tente inserir um número válido!");
+                            Thread.Sleep(3000);
+                            Console.Clear();
+                        }
+                }
+                passa = false;
                 Thread.Sleep(500);
-                Console.WriteLine("Memória:(Ex: Apenas digite o número de gigas!)");
-                int memoria = Convert.ToInt32(Console.ReadLine());
+                while (passa == false) 
+                { 
+                    Console.WriteLine("Memória:(Ex: Apenas digite o número de gigas!)");
+                    int memoria = Convert.ToInt32(Console.ReadLine());
+                        try
+                        {
+                            iphone.Memoria = memoria;
+                            passa = true;
+                        }
+                        catch 
+                        {
+                            Console.WriteLine("Digite apenas números na opção memória!");
+                            Thread.Sleep(3000);
+                            Console.Clear();
+                        }
+                }
+                passa = false;
                 Thread.Sleep(500);
-                Console.WriteLine("Imei: (Ex:Digite apenas números e letras maiusculas!)");
-                string imei = Console.ReadLine();
+                while (passa == false)
+                {
+                    Console.WriteLine("Imei: (Ex:Digite apenas números e letras maiusculas!)");
+                    string imei = Console.ReadLine();
+                        if (imei.Length > 4)
+                        {
+                            iphone.Imei = imei;
+                            passa = true;
+                        }
+                        else 
+                        {
+                            Console.WriteLine($"Insira um imei válido, o {imei} tem menos de 4 caracteres ");
+                            Thread.Sleep(3000);
+                            Console.Clear();
+                        }
+                }
                 Thread.Sleep(500);
-                Iphone iphone = new Iphone(numero,imei,modelo,memoria);
+                //Iphone iphone = new Iphone(numero,imei,modelo,memoria);
                 Console.WriteLine(@"Tudo certo, aparelho abstraido com sucesso!
                                                  ");                                        
                 iphone.Descricao();
@@ -52,7 +119,7 @@ namespace Celulares_tipos
                     Thread.Sleep(2000);
 
                     Console.Clear();
-                    Console.WriteLine("Menu: \n1-Fazer Ligação \n2-Aplicativo de Contatos \n3-Aplicativo de Músicas \n4-Instalar um aplicativo \n5-Desligar ");
+                    Console.WriteLine("Menu: \n1-Fazer Ligação \n2-Aplicativo de Contatos \n3-Itunes \n4-Instalar um aplicativo \n5-Desligar ");
                     int opcaoMenu = Convert.ToInt32(Console.ReadLine());
                     switch (opcaoMenu)
                     {
@@ -80,21 +147,82 @@ namespace Celulares_tipos
                 break;
 
             case 2:
+            bool adiante = false;
+
             Console.WriteLine("Certo, agora me passe as informações do seu Nokia!");
-                Thread.Sleep(1500);
-                Console.WriteLine("Modelo:(Ex: Nokia XR21)");
-                string modeloNokia = Console.ReadLine();
+            Nokia nokia = new Nokia();
+            Thread.Sleep(1500);
+            while (adiante == false) 
+                {
+                    Console.WriteLine("Modelo:(Ex: Nokia G60)");
+                    string modelo = Console.ReadLine();
+                        if (modelo.Length > 3) {
+                            nokia.Modelo = modelo;
+                            adiante = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Modelo invalido, tente inserir um nome válido!");
+                            Thread.Sleep(3000);
+                            Console.Clear();
+                        }
+                }
+                adiante = false;
                 Thread.Sleep(500);
-                Console.WriteLine("Número:(Ex: 81-997505987)");
-                string numeroNokia = Console.ReadLine();
+                while (adiante == false) 
+                {
+                    Console.WriteLine("Número:(Ex: 81-997505987)");
+                    string numero = Console.ReadLine();
+                        if (numero.Length > 3) 
+                        {
+                            nokia.Numero = numero;
+                            adiante = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Número invalido, tente inserir um número válido!");
+                            Thread.Sleep(3000);
+                            Console.Clear();
+                        }
+                }
+                adiante = false;
                 Thread.Sleep(500);
-                Console.WriteLine("Memória:(Ex: Apenas digite o número de gigas!)");
-                int memoriaNokia = Convert.ToInt32(Console.ReadLine());
+                while (adiante == false) 
+                { 
+                    Console.WriteLine("Memória:(Ex: Apenas digite o número de gigas!)");
+                    int memoria = Convert.ToInt32(Console.ReadLine());
+                        try
+                        {
+                            nokia.Memoria = memoria;
+                            adiante = true;
+                        }
+                        catch 
+                        {
+                            Console.WriteLine("Digite apenas números na opção memória!");
+                            Thread.Sleep(3000);
+                            Console.Clear();
+                        }
+                }
+                adiante = false;
                 Thread.Sleep(500);
-                Console.WriteLine("Imei: (Ex:Digite apenas números e letras maiusculas!)");
-                string imeiNokia = Console.ReadLine();
+                while (adiante == false)
+                {
+                    Console.WriteLine("Imei: (Ex:Digite apenas números e letras maiusculas!)");
+                    string imei = Console.ReadLine();
+                        if (imei.Length > 4)
+                        {
+                            nokia.Imei = imei;
+                            adiante = true;
+                        }
+                        else 
+                        {
+                            Console.WriteLine($"Insira um imei válido, o {imei} tem menos de 4 caracteres ");
+                            Thread.Sleep(3000);
+                            Console.Clear();
+                        }
+                }
                 Thread.Sleep(500);
-                Nokia nokia = new Nokia(numeroNokia,imeiNokia,modeloNokia,memoriaNokia);
+                //Nokia nokia = new Nokia(numeroNokia,imeiNokia,modeloNokia,memoriaNokia);
                 Console.WriteLine(@"Tudo certo, aparelho abstraido com sucesso!
                                                  ");                                        
                 nokia.Descricao();
@@ -111,7 +239,7 @@ namespace Celulares_tipos
                         Thread.Sleep(2000);
 
                         Console.Clear();
-                        Console.WriteLine("Menu: \n1-Fazer Ligação \n2-Aplicativo de Contatos \n3-Aplicativo de Músicas \n4-Instalar um aplicativo \n5-Desligar ");
+                        Console.WriteLine("Menu: \n1-Fazer Ligação \n2-Aplicativo de Contatos \n3-Music Player \n4-Instalar um aplicativo \n5-Desligar ");
                         int opcaoMenu = Convert.ToInt32(Console.ReadLine());
                         switch (opcaoMenu)
                         {
