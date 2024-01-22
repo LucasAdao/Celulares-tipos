@@ -11,8 +11,6 @@ namespace Celulares_tipos
     {
         static void Main() 
         {
-            //memoria usavel -- feito!
-            //Bateria -- em produção!
             //Identar
             //Diagrama UML 
             Console.WriteLine("Vamos simular um modelo de celular!");
@@ -22,7 +20,7 @@ namespace Celulares_tipos
             
             switch (opcaoInicial) 
             { 
-            case 1:
+                case 1:
                 bool passa = false;
 
                 Console.WriteLine("Certo, agora me passe as informações do seu Iphone!");
@@ -164,33 +162,33 @@ namespace Celulares_tipos
                 Console.WriteLine("Aparelho desligado com sucesso! \n\nNão fui eu que ordenei a você? Seja forte e corajoso! Não se apavore nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar! \n Josué 1:9"); 
                 break;
 
-            case 2:
-            bool adiante = false;
-
-            Console.WriteLine("Certo, agora me passe as informações do seu Nokia!");
-            Nokia nokia = new Nokia();
-            Thread.Sleep(1500);
-            while (adiante == false) 
-                {
-                    Console.WriteLine("Modelo:(Ex: Nokia G60)");
-                    string modelo = Console.ReadLine();
-                        if (modelo.Length > 3) {
-                            nokia.Modelo = modelo;
-                            adiante = true;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Modelo invalido, tente inserir um nome válido!");
-                            Thread.Sleep(3000);
-                            Console.Clear();
-                        }
-                }
-                adiante = false;
-                Thread.Sleep(500);
-                while (adiante == false) 
-                {
-                    Console.WriteLine("Número:(Ex: 81-997505987)");
-                    string numero = Console.ReadLine();
+                case 2:
+                    bool adiante = false;
+                    Console.WriteLine("Certo, agora me passe as informações do seu Nokia!");
+                    Nokia nokia = new Nokia();
+                    Thread.Sleep(1500);
+                    while (adiante == false) 
+                    {
+                        Console.WriteLine("Modelo:(Ex: Nokia G60)");
+                        string modelo = Console.ReadLine();
+                            if (modelo.Length > 3) 
+                            {
+                                nokia.Modelo = modelo;
+                                adiante = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Modelo invalido, tente inserir um nome válido!");
+                                Thread.Sleep(3000);
+                                Console.Clear();
+                            }
+                    }
+                    adiante = false;
+                    Thread.Sleep(500);
+                    while (adiante == false) 
+                    {
+                        Console.WriteLine("Número:(Ex: 81-997505987)");
+                        string numero = Console.ReadLine();
                         if (numero.Length > 3) 
                         {
                             nokia.Numero = numero;

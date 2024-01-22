@@ -226,7 +226,7 @@ namespace Celulares_tipos.models
             }
 
         }
-
+        
         public override void InstalarAplicativo()
         {
             Bateria = Bateria - 10;

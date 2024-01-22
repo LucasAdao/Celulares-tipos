@@ -117,10 +117,10 @@ namespace Celulares_tipos.models
                         Musica music = new Musica(nomeDaMusica, autor);
                         if (music.NomeDaMusica.Length > 0 && music.Autor.Length > 0) 
                         {
-                        Musicas.Add(music);
-                        Console.WriteLine("Musica adicionada com sucesso!");
-                        MemoriaUsavel = MemoriaUsavel - 0.10;
-                        Thread.Sleep(1000);
+                            Musicas.Add(music);
+                            Console.WriteLine("Musica adicionada com sucesso!");
+                            MemoriaUsavel = MemoriaUsavel - 0.10;
+                            Thread.Sleep(1000);
                         }else
                         {
                             Console.WriteLine("Não foi possível adicionar a música, certifique-se de preencher os campos de forma adequada, a música precisa possuir um nome e precisa ter um autor.");
@@ -141,13 +141,12 @@ namespace Celulares_tipos.models
                         }
                         else 
                         { 
-                        foreach (Musica musica in Musicas)
-                        {
-                            
-                            Console.WriteLine(i + "." + musica.NomeDaMusica + " - " + musica.Autor);
-                            Thread.Sleep(500);
-                            i++;
-                        }
+                            foreach (Musica musica in Musicas)
+                            {
+                                Console.WriteLine(i + "." + musica.NomeDaMusica + " - " + musica.Autor);
+                                Thread.Sleep(500);
+                                i++;
+                            }
                         }
                         Console.WriteLine("Digite uma tecla para continuar");
                         Console.ReadKey();
