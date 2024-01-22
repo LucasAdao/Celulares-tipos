@@ -128,7 +128,7 @@ namespace Celulares_tipos.models
             if (aplicativoParaRemover != null)
             {
                 Aplicacoes.Remove(aplicativoParaRemover);
-                MemoriaUsavel = MemoriaUsavel - aplicativoParaRemover.Tamanho;
+                MemoriaUsavel = MemoriaUsavel + aplicativoParaRemover.Tamanho;
                 Console.WriteLine($"O {nomeDoAplicativo} foi removido com sucesso! e foi liberado {aplicativoParaRemover.Tamanho} de espaço");
             }
             else
