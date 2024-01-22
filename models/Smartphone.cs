@@ -8,12 +8,10 @@ namespace Celulares_tipos.models
 {
     public abstract class Smartphone
     {
-
-    //passar para private
         public string Numero { get; set; }
         public string Imei { get; set; }
         public string Modelo { get; set;}
-        public int Memoria { get; set; }
+        public int MemoriaFicha { get; set; }
         public int Bateria = 100;
 
         public double MemoriaUsavel { get; set; }
@@ -33,19 +31,23 @@ namespace Celulares_tipos.models
             Numero = numero;
             Imei = imei;
             Modelo = modelo;
-            Memoria = memoria;
+            MemoriaFicha = memoria;
             Musicas = new List<Musica>();
             Contatos = new List<Contato>();
             Aplicacoes = new List<Aplicacao>();
-            MemoriaUsavel = Memoria;
         }
 
         public void Desligar()
         {
             Ligado = false;
         }
-        
-        //Lembrar de debugar isso para ver como esta funcionando
+
+        public void OlharBarraDeNotificacoes() 
+        {
+            DateTime agora = DateTime.Now;
+            Console.WriteLine($"Bateria - {Bateria}%,Data - {agora.Day}/{agora.Month}/{agora.Year} Hora - {agora.Hour}:{agora.Minute} \nOtimize seu celular! Você já ocupou {MemoriaUsavel}GB/{MemoriaFicha}GB.");
+            Thread.Sleep(3000);
+        }
         
         public void Carregar() {
             bool carregar = true;
@@ -74,60 +76,65 @@ namespace Celulares_tipos.models
 
         public void Descricao() 
         {
-            Console.WriteLine($"Modelo: {Modelo} \nMemoria: {Memoria}Gb");
+            Console.WriteLine($"Modelo: {Modelo} \nMemoria: {MemoriaFicha}Gb");
         }
 
         protected void RemoverMusica()
         {
-        Console.WriteLine("Digite o nome da música que você quer remover:");
-        string nomeDaMusica = Console.ReadLine();
+            Bateria = Bateria - 5;
+            Console.WriteLine("Digite o nome da música que você quer remover:");
+            string nomeDaMusica = Console.ReadLine();
         
-        Musica musicaParaRemover = Musicas.Find(m => m.NomeDaMusica == nomeDaMusica);
+            Musica musicaParaRemover = Musicas.Find(m => m.NomeDaMusica == nomeDaMusica);
 
-        if (musicaParaRemover != null)
-        {
-            Musicas.Remove(musicaParaRemover);
-            Console.WriteLine($"Música '{nomeDaMusica}' removida com sucesso!");
-        }
-        else
-        {
-            Console.WriteLine($"Música '{nomeDaMusica}' não encontrada no celular.");
-        }
+            if (musicaParaRemover != null)
+            {
+                Musicas.Remove(musicaParaRemover);
+                Console.WriteLine($"Música '{nomeDaMusica}' removida com sucesso!");
+                MemoriaUsavel = MemoriaUsavel + 0.10;
+            }
+            else
+            {
+                Console.WriteLine($"Música '{nomeDaMusica}' não encontrada no celular.");
+            }
         }
 
         protected void RemoverContato()
         {
-        Console.WriteLine("Digite o nome do contato que você quer remover:");
-        string nomeDoContato = Console.ReadLine();
-        
-        Contato contatoParaRemover = Contatos.Find(m => m.Nome == nomeDoContato);
+            Bateria = Bateria - 5;
+            Console.WriteLine("Digite o nome do contato que você quer remover:");
+            string nomeDoContato = Console.ReadLine();
+            Contato contatoParaRemover = Contatos.Find(m => m.Nome == nomeDoContato);
 
-        if (contatoParaRemover != null)
-        {
-            Contatos.Remove(contatoParaRemover);
-            Console.WriteLine($"Contato:{nomeDoContato} removida com sucesso!");
+            if (contatoParaRemover != null)
+            {
+                Contatos.Remove(contatoParaRemover);
+                Console.WriteLine($"Contato:{nomeDoContato} removida com sucesso!");
+                MemoriaUsavel = MemoriaUsavel + 0.05;
+            }
+            else
+            {
+                Console.WriteLine($"Contato:{nomeDoContato} não encontrada no celular.");
+            }
         }
-        else
+        public void RemoverAplicativo()
         {
-            Console.WriteLine($"Contato:{nomeDoContato} não encontrada no celular.");
-        }
-        }
-        protected void RemoverAplicativo()
-        {
-        Console.WriteLine("Digite o nome do Aplicativo que você quer remover:");
-        string nomeDoAplicativo = Console.ReadLine();
+            Bateria = Bateria - 5;
+            Console.WriteLine("Digite o nome do Aplicativo que você quer remover:");
+            string nomeDoAplicativo = Console.ReadLine();
         
-        Aplicacao aplicativoParaRemover = Aplicacoes.Find(m => m.Nome == nomeDoAplicativo);
+            Aplicacao aplicativoParaRemover = Aplicacoes.Find(m => m.Nome == nomeDoAplicativo);
 
-        if (aplicativoParaRemover != null)
-        {
-            Aplicacoes.Remove(aplicativoParaRemover);
-            Console.WriteLine($"O {nomeDoAplicativo} foi removido com sucesso!");
-        }
-        else
-        {
-            Console.WriteLine($"{nomeDoAplicativo} não encontrado no seu celular.");
-        }
+            if (aplicativoParaRemover != null)
+            {
+                Aplicacoes.Remove(aplicativoParaRemover);
+                MemoriaUsavel = MemoriaUsavel - aplicativoParaRemover.Tamanho;
+                Console.WriteLine($"O {nomeDoAplicativo} foi removido com sucesso! e foi liberado {aplicativoParaRemover.Tamanho} de espaço");
+            }
+            else
+            {
+                Console.WriteLine($"{nomeDoAplicativo} não encontrado no seu celular.");
+            }
         }
 
         public abstract void Ligar();

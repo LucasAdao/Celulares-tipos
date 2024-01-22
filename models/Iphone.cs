@@ -43,6 +43,7 @@ namespace Celulares_tipos.models
 
        public override void AplicativoDeContatos()
         {
+            Bateria = Bateria - 10;
             bool acessarContatos = true;
             while (acessarContatos == true)
             {
@@ -78,17 +79,18 @@ namespace Celulares_tipos.models
                         Contato contato = new Contato(nomeDoContato, numeroDoContato);
                         Contatos.Add(contato);
                         Console.WriteLine("Contato adicionado com sucesso, digite uma tecla para continuar!");
+                        MemoriaUsavel = MemoriaUsavel - 0.05;
                         Console.ReadKey();
-                        Memoria--;
                         break;
                     case 3:
                         Thread.Sleep(1000);
                         RemoverContato();
-                        Memoria++;
                         Console.WriteLine("Digite uma tecla para continuar");
                         Console.ReadKey();
                         break;
                     case 4:
+                        Console.WriteLine("Digite uma tecla para continuar");
+                        Console.ReadKey();
                         acessarContatos = false;
                         break;
                     default:
@@ -102,8 +104,7 @@ namespace Celulares_tipos.models
 
         public override void AplicativoDeMusicas()
         {
-            
-            Bateria--;
+            Bateria = Bateria - 10;
             bool musicPlayer = true;
             while (musicPlayer == true) 
             {
@@ -124,8 +125,8 @@ namespace Celulares_tipos.models
                         {
                         Musicas.Add(music);
                         Console.WriteLine("Musica adicionada com sucesso!");
+                        MemoriaUsavel = MemoriaUsavel - 0.10;
                         Thread.Sleep(1000);
-                        Memoria--;
                         }else
                         {
                             Console.WriteLine("Não foi possível adicionar a música, certifique-se de preencher os campos de forma adequada, a música precisa possuir um nome e precisa ter um autor."); 
@@ -158,6 +159,8 @@ namespace Celulares_tipos.models
                        
                         break;
                     case 4:
+                        Console.WriteLine("Digite uma tecla para continuar");
+                        Console.ReadKey();
                         musicPlayer = false;
                         break;
                         
@@ -169,13 +172,13 @@ namespace Celulares_tipos.models
                         Thread.Sleep(1000);
                         break;
                 }
-
             }
         }
 
 
         public override void FazerLigacao()
         {
+            Bateria = Bateria - 10;
             Stopwatch stopwatch = new Stopwatch();
 
             Console.WriteLine("Digite o número que você deseja fazer a ligação:");
@@ -226,6 +229,7 @@ namespace Celulares_tipos.models
 
         public override void InstalarAplicativo()
         {
+            Bateria = Bateria - 10;
             Console.WriteLine("Acessando a Apple Store...");
             Thread.Sleep(1000);
             Console.WriteLine("...");
@@ -237,12 +241,12 @@ namespace Celulares_tipos.models
             aplicacao.Nome = aplicativoNome;
             Random random = new Random();
             aplicacao.Tamanho = random.Next(1, 13);
-            if (Memoria < aplicacao.Tamanho)
+            if (MemoriaUsavel < aplicacao.Tamanho)
             {
                 Thread.Sleep(1000);
                 Console.WriteLine("Libere mais memória, o aplicativo excede a memória do dispositivo.");
                 Thread.Sleep(1000);
-                Console.WriteLine("Sua memória atual é : " + Memoria + "Gb. e o aplicativo atual tem " + aplicacao.Tamanho + "Gb");
+                Console.WriteLine("Sua memória atual é : " + MemoriaUsavel + "Gb. e o aplicativo atual tem " + aplicacao.Tamanho + "Gb");
                 Thread.Sleep(1000);
                 Console.WriteLine("Digite uma tecla para continuar");
                 Console.ReadKey();
@@ -257,7 +261,6 @@ namespace Celulares_tipos.models
                 Aplicacoes.Add(aplicacao);
                 Thread.Sleep(1000);
                 Console.WriteLine("Aplicativo instalado com sucesso!");
-                Memoria = Memoria - aplicacao.Tamanho;
                 Console.WriteLine("Digite uma tecla para continuar");
                 Console.ReadKey();
             }

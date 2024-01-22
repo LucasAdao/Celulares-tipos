@@ -11,13 +11,10 @@ namespace Celulares_tipos
     {
         static void Main() 
         {
-            //feedbacks          - Okay!
-            //fazer a função desinstalar app     - Okay!
-            //manter o usuário preso na operação  - Okay!
-            //memoria usavel -- usar????
-            //Diagrama UML  -- em produção
-            //fazer a calculadora
-            //testar a calculadora
+            //memoria usavel -- feito!
+            //Bateria -- em produção!
+            //Identar
+            //Diagrama UML 
             Console.WriteLine("Vamos simular um modelo de celular!");
             Thread.Sleep(1000);
             Console.WriteLine("Digite: \n 1-Para Iphone \n 2-Para Nokia");
@@ -70,13 +67,15 @@ namespace Celulares_tipos
                 while (passa == false) 
                 { 
                     Console.WriteLine("Memória:(Ex: Apenas digite o número de gigas!)");
-                    int memoria = Convert.ToInt32(Console.ReadLine());
+                    //quando eu coloco o readline aqui fora o catch não pega
                         try
                         {
-                            iphone.Memoria = memoria;
+                            int memoria = Convert.ToInt32(Console.ReadLine());
+                            iphone.MemoriaFicha = memoria;
+                            iphone.MemoriaUsavel = memoria;
                             passa = true;
                         }
-                        catch 
+                        catch (FormatException)
                         {
                             Console.WriteLine("Digite apenas números na opção memória!");
                             Thread.Sleep(3000);
@@ -112,36 +111,55 @@ namespace Celulares_tipos
                 Thread.Sleep(2000);
                 iphone.Ligar();
                 Thread.Sleep(1500);
+                
 
+              
 
                 while (iphone.Ligado)
                 {
                     Thread.Sleep(2000);
-
-                    Console.Clear();
-                    Console.WriteLine("Menu: \n1-Fazer Ligação \n2-Aplicativo de Contatos \n3-Itunes \n4-Instalar um aplicativo \n5-Desligar ");
-                    int opcaoMenu = Convert.ToInt32(Console.ReadLine());
-                    switch (opcaoMenu)
-                    {
-                        case 1:
-                            iphone.FazerLigacao();
-                            break;
-                        case 2:
-                            iphone.AplicativoDeContatos();
-                            break;
-                        case 3:
-                            iphone.AplicativoDeMusicas();
-                            break;
-                        case 4:
-                            iphone.InstalarAplicativo();
-                            break;
-                        case 5:
+                        if (iphone.Bateria == 0)
+                        {
+                            Console.WriteLine("O seu celular está sem bateria! \n Desligando....");
+                            Thread.Sleep(3000);
                             iphone.Desligar();
-                            break;
-                        default:
-                            Console.WriteLine("Insira um valor válido!");
-                            break;
-                    }
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Menu: \n1-Fazer Ligação \n2-Aplicativo de Contatos \n3-Itunes \n4-Apple Store \n5-Desinstalar Aplicativo \n6-Ficha técnica \n7-Olhar Barra de notificações \n8-Desligar ");
+                            int opcaoMenu = Convert.ToInt32(Console.ReadLine());
+                            switch (opcaoMenu)
+                            {
+                                case 1:
+                                    iphone.FazerLigacao();
+                                    break;
+                                case 2:
+                                    iphone.AplicativoDeContatos();
+                                    break;
+                                case 3:
+                                    iphone.AplicativoDeMusicas();
+                                    break;
+                                case 4:
+                                    iphone.InstalarAplicativo();
+                                    break;
+                                case 5:
+                                    iphone.RemoverAplicativo();
+                                    break;
+                                case 6:
+                                    iphone.Descricao();
+                                    break;
+                                case 7:
+                                    iphone.OlharBarraDeNotificacoes();
+                                    break;
+                                case 8:
+                                    iphone.Desligar();
+                                    break;
+                                default:
+                                    Console.WriteLine("Insira um valor válido!");
+                                    break;
+                            }
+                        }
                 }
                 Console.WriteLine("Aparelho desligado com sucesso! \n\nNão fui eu que ordenei a você? Seja forte e corajoso! Não se apavore nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar! \n Josué 1:9"); 
                 break;
@@ -190,13 +208,15 @@ namespace Celulares_tipos
                 while (adiante == false) 
                 { 
                     Console.WriteLine("Memória:(Ex: Apenas digite o número de gigas!)");
-                    int memoria = Convert.ToInt32(Console.ReadLine());
+                    //quando eu coloco o readline aqui fora o catch não pega!
                         try
                         {
-                            nokia.Memoria = memoria;
+                            int memoria = Convert.ToInt32(Console.ReadLine());
+                            nokia.MemoriaFicha = memoria;
+                            nokia.MemoriaUsavel = memoria;
                             adiante = true;
                         }
-                        catch 
+                        catch (FormatException)
                         {
                             Console.WriteLine("Digite apenas números na opção memória!");
                             Thread.Sleep(3000);
@@ -233,15 +253,20 @@ namespace Celulares_tipos
                 nokia.Ligar();
                 Thread.Sleep(1500);
 
-
-                    while (nokia.Ligado)
+                while (nokia.Ligado)
+                {
+                    if (nokia.Bateria == 0)
                     {
-                        Thread.Sleep(2000);
+                        Console.WriteLine("Bateria 0%, Desligando...");
+                        Thread.Sleep(3000);
+                        nokia.Desligar();
+                    }
+                    Thread.Sleep(2000);
+                    Console.Clear();
+                    Console.WriteLine("Menu: \n1-Fazer Ligação \n2-Aplicativo de Contatos \n3-Music Player \n4-Play Store \n5-Deinstalar Aplicativo\n6-Descrição do dispositivo \n7-Olhar Barra de notificações \n 8-Desligar");
+                    int opcaoMenu = Convert.ToInt32(Console.ReadLine());
 
-                        Console.Clear();
-                        Console.WriteLine("Menu: \n1-Fazer Ligação \n2-Aplicativo de Contatos \n3-Music Player \n4-Instalar um aplicativo \n5-Desligar ");
-                        int opcaoMenu = Convert.ToInt32(Console.ReadLine());
-                        switch (opcaoMenu)
+                    switch (opcaoMenu)
                         {
                             case 1:
                                 nokia.FazerLigacao();
@@ -256,6 +281,15 @@ namespace Celulares_tipos
                                 nokia.InstalarAplicativo();
                                 break;
                             case 5:
+                                nokia.RemoverAplicativo();
+                                break;
+                            case 6:
+                                nokia.Descricao();
+                                break;
+                            case 7:
+                                nokia.OlharBarraDeNotificacoes();
+                                break;    
+                            case 8:
                                 nokia.Desligar();
                                 break;
                             default:
